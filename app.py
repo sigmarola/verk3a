@@ -27,5 +27,5 @@ def static_skrar(skra):
     return static_file(skra, root='./public/')
 
 
-
-run(host='localhost', port=8000, degbug=True)
+bottle.run(host='0.0.0.0', port=argv[1])
+#run(host='localhost', port=8000, degbug=True)
