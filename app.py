@@ -1,12 +1,7 @@
 #coding=UTF-8
-import os
-from os import environ as env
 import bottle
-application = bottle.default_app()
-from bottle import default_app, request, route, response, run, error, redirect, abort, static_file, template
+from bottle import request, route, response, run, error, redirect, abort, static_file, template
 from sys import argv
-
-bottle.debug(True)
 
 
 
