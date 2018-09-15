@@ -1,9 +1,12 @@
 #coding=UTF-8
 import os
 from os import environ as env
-
-from bottle import route, run, error, redirect, abort, request, static_file, template, get
+import bottle
+application = bottle.default_app()
+from bottle import default_app, request, route, response, run, error, redirect, abort, static_file, template
 from sys import argv
+
+bottle.debug(True)
 
 
 
@@ -13,10 +16,10 @@ nofn = {'jón': '0402982541',
         'ásgeir': '2010789426'}
 
 
-@get('/')
+@route('/')
 def index():
     return template('main.tpl', names=nofn, title = None, kt = 0)
-@get('/<id>')
+@route('/<id>')
 def kt(id):
     if id == '0402982541' or id == '0510853652' or id == '0101932201' or id == '2010789426':
         return template('page1.tpl', kt=id, title='Kennitala')
@@ -26,7 +29,7 @@ def kt(id):
 @error(404)
 def villa(error):
     return template('villa.tpl')
-@get('/static/<skra:path>')
+@route('/static/<skra:path>')
 def static_skrar(skra):
     return static_file(skra, root='./public/')
 
