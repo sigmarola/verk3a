@@ -1,6 +1,10 @@
 #coding=UTF-8
+import os
+from os import environ as env
+application = bottle.default_app()
 from bottle import route, run, error, redirect, abort, request, static_file, template, get
 from sys import argv
+bottle.debug(True)
 
 
 nofn = {'jón': '0402982541',
