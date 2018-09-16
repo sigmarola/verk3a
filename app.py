@@ -20,7 +20,6 @@ def kt(id):
         return template('page1.tpl', kt=id, title='Kennitala')
     else:
         abort(404)
-#@route('/<ii>')
 @error(404)
 def villa(error):
     return template('villa.tpl')
